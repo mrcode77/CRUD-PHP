@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "admin"; //username phpmysql
 $pass = "Administrator*"; //password phpmysql
-$nama_db = "crud-php"; //nama database yang di buat
+$nama_db = "db_siswa"; //nama database yang di buat
 
 $koneksi = mysqli_connect($host, $user, $pass, $nama_db);
 
