@@ -1,3 +1,10 @@
+<?php
+  include 'koneksi.php';
+  $query = "SELECT * FROM tb_siswa";
+  $sql = mysqli_query($koneksi, $query);
+  $no = 1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +48,9 @@
       <table class="table align-middle table-bordered table-hover">
         <thead>
           <tr>
-            <th><center>No</center></th>
+            <th>
+              <center>No</center>
+            </th>
             <th>NISN</th>
             <th>Nama Siswa</th>
             <th>Jenis Kelamin</th>
@@ -51,22 +60,28 @@
           </tr>
         </thead>
         <tbody>
+          <?php 
+          while($result = mysqli_fetch_assoc($sql)){
+          ?>
           <tr>
-            <td><center>1.</center></td>
-            <td>1234567890</td>
-            <td>John Doe</td>
-            <td>Laki-laki</td>
-            <td><img src="img/indomie.jpg" style="width: 150px;"></td>
-            <td>John Doe</td>
             <td>
-              <a href="kelola.php?ubah=1" type="button" class="btn btn-success btn-sm">
+              <center><?php echo $no++;?>.</center>
+            </td>
+            <td><?php echo $result['nisn'];?></td>
+            <td><?php echo $result['nama_siswa'];?></td>
+            <td><?php echo $result['jenis_kelamin'];?></td>
+            <td><img src="img/<?php echo $result['foto_siswa'];?>" style="width: 150px;"></td>
+            <td><?php echo $result['alamat'];?></td>
+            <td>
+              <a href="kelola.php?ubah=<?php echo $result['id_siswa'];?>" type="button" class="btn btn-success btn-sm">
                 <i class="fa fa-pencil"></i>
               </a>
-              <a href="proses.php?hapus=1" type="button" class="btn btn-danger btn-sm">
+              <a href="proses.php?hapus=<?php echo $result['id_siswa'];?>" type="button" class="btn btn-danger btn-sm">
                 <i class="fa fa-trash"></i>
               </a>
             </td>
           </tr>
+          <?php } ?>
         </tbody>
       </table>
     </div>
