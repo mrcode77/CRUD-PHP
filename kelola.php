@@ -27,19 +27,19 @@
       <div class="mb-3 row">
         <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nisn" placeholder="Ex: 12231">
+          <input type="text" name="nisn" class="form-control" id="nisn" placeholder="Ex: 12231">
         </div>
       </div>
       <div class="mb-3 row">
         <label for="nama" class="col-sm-2 col-form-label">Nama Siswa</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nama" placeholder="Ex: Alexander">
+          <input type="text" name="nama_siswa" class="form-control" id="nama_siswa" placeholder="Ex: Alexander">
         </div>
       </div>
       <div class="mb-3 row">
         <label for="jkel" class="col-sm-2 col-form-label">Jenis Kelamin</label>
         <div class="col-sm-10">
-          <select class="form-select">
+          <select id="jkel" name="jenis_kelamin" class="form-select">
             <option selected>Jenis Kelamin</option>
             <option value="Laki-laki">Laki-laki</option>
             <option value="Perempuan">Perempuan</option>
@@ -47,15 +47,15 @@
         </div>
       </div>
       <div class="mb-3 row">
-        <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+        <label for="foto_siswa" class="col-sm-2 col-form-label">Foto</label>
         <div class="col-sm-10">
-          <input class="form-control" type="file" id="foto">
+          <input class="form-control" type="file" id="foto_siswa" name="foto_siswa">
         </div>
       </div>
       <div class="mb-3 row">
         <label for="alamat" class="col-sm-2 col-form-label">Alamat Lengkap</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="alamat" rows="3"></textarea>
+          <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
         </div>
       </div>
       <div class="mb-3 row mt-4">
