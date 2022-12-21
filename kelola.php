@@ -48,7 +48,7 @@
       <div class="mb-3 row">
         <label for="foto" class="col-sm-2 col-form-label">Foto</label>
         <div class="col-sm-10">
-          <input class="form-control" type="file" id="foto" name="foto" accept="image/" required>
+          <input class="form-control" type="file" id="foto" name="foto" accept="image/*" required>
         </div>
       </div>
       <div class="mb-3 row">
