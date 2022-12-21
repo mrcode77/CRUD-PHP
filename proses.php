@@ -14,7 +14,6 @@ if (isset($_POST['aksi'])) {
     $tmpFile = $_FILES['foto']['tmp_name'];
     move_uploaded_file($tmpFile, $dir.$foto);
   
-    die();
    
     // proses tambah data
     $query = "INSERT INTO tb_siswa (nisn, nama_siswa, jenis_kelamin, foto_siswa, alamat) VALUES ( '$nisn', '$nama_siswa', '$jenis_kelamin', '$foto', '$alamat')";
