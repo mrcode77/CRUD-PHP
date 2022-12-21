@@ -1,5 +1,7 @@
 <?php
 include 'koneksi.php';
+session_start();
+
 $query = "SELECT * FROM tb_siswa";
 $sql = mysqli_query($koneksi, $query);
 $no = 1;
@@ -19,7 +21,15 @@ $no = 1;
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- fontawesome -->
   <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+  <!-- Data Tables -->
+  <link rel="stylesheet" type="text/css" href="datatables/datatables.css">
+  <script type="text/javascript" src="datatables/datatables.js"></script>
 </head>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#dt').DataTable();
+  });
+</script>
 
 <body>
   <nav class="navbar bg-light">
@@ -44,8 +54,24 @@ $no = 1;
       <i class="fa fa-plus"></i>
       Tambah Data
     </a>
+    <?php
+    if (isset($_SESSION['pesan'])) :
+    ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>
+          <?php
+          echo $_SESSION['pesan'];
+          ?>
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php
+      session_destroy();
+    endif;
+    ?>
+    <!-- Tabel -->
     <div class="table-responsive">
-      <table class="table align-middle table-bordered table-hover">
+      <table id="dt" class="table align-middle cell-border hover">
         <thead>
           <tr>
             <th>
