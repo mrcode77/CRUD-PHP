@@ -6,10 +6,12 @@ function tambah_data($data, $files)
     $nisn = $data['nisn'];
     $nama_siswa = $data['nama_siswa'];
     $jenis_kelamin = $data['jenis_kelamin'];
-    $foto = $files['foto']['name'];
     $alamat = $data['alamat'];
 
-    // upload foto
+    $split = explode('.', $files['foto']['name']);
+    $ektensi = $split[count($split) - 1];
+    $foto = $nisn . '.' . $ektensi;
+
     $dir = "img/";
     $tmpFile = $files['foto']['tmp_name'];
     move_uploaded_file($tmpFile, $dir . $foto);
@@ -36,9 +38,12 @@ function ubah_data($data, $files)
     if ($files['foto']['name'] == "") {
         $foto = $result['foto_siswa'];
     } else {
-        $foto = $files['foto']['name'];
+        $split = explode('.', $files['foto']['name']);
+        $ektensi = $split[count($split) - 1];
+
+        $foto = $result['nisn'] . '.' . $ektensi;
         unlink("img/" . $result['foto_siswa']);
-        move_uploaded_file($files['foto']['tmp_name'], 'img/' . $files['foto']['name']);
+        move_uploaded_file($files['foto']['tmp_name'], 'img/' . $foto);
     }
 
     $query = "UPDATE tb_siswa SET nisn = '$nisn', nama_siswa = '$nama_siswa', jenis_kelamin = '$jenis_kelamin', alamat = '$alamat', foto_siswa = '$foto' WHERE id_siswa = '$id_siswa'";
